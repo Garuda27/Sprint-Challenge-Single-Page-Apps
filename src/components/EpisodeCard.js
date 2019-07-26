@@ -5,31 +5,36 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 
-
 const useStyles = makeStyles({
   card: {
-    maxWidth: 365,
+    maxWidth: 345,
     margin: 10,
+  },
+  status: {
+    color: 'gray',
+    margin: 0,
+    padding: 0,
   },
 });
 
-export default function LocationCard (props) {
+export default function EpisodeCard (props) {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
 
       <CardActionArea>
         <CardContent>
-          <h1>{props.loc.name}</h1>
-          <p>{`Type: ${props.loc.type}`}</p>
-          <p>{`Dimension: ${props.loc.dimension}`}</p>
+          <h1>{props.ep.name}</h1>
+          <h4 className={classes.status}>{props.ep.air_date}</h4>
+          <p>{`Episode: ${props.ep.name} ${props.ep.episode}`}</p>
         </CardContent>
 
       </CardActionArea>
 
       <CardActions>
-      <p>{`${props.loc.residents.length} residents`}</p>
+        <p>{`${props.ep.characters.length} characters`}</p>
       </CardActions>
+
     </Card>
   );
 }

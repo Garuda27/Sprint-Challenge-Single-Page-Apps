@@ -4,9 +4,9 @@ import LocationCard from './LocationCard';
 
 export default function LocationsList() {
   const [locList, setLocList] = useState([]);
-  const [pageNum, setPageNum] = useState('1');
+  const [pageNo, setPageNo] = useState('1');
   useEffect(() => {
-    axios.get(`https://rickandmortyapi.com/api/location/?page=${pageNum}`)
+    axios.get(`https://rickandmortyapi.com/api/location/?page=${pageNo}`)
     .then(data=>{
       console.log(data);
       setLocList(data.data.results);
@@ -14,7 +14,7 @@ export default function LocationsList() {
     .catch( err => {
       console.log("Error:", err);
     })    
-  }, [pageNum])
+  }, [pageNo])
   return <section className='location-list grid-view'>
       {locList.map((loc)=>{
         return(
